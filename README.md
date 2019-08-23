@@ -1,24 +1,37 @@
-# README
+# Новостной блог
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Запуск
+После запуска команд производится установка гемов, npm-пакетов
+```
+bundle install
+```
 
-Things you may want to cover:
 
-* Ruby version
+##Создание бд
+После запуска производится миграция базы и заполнение начальными данными
+(Начальные данные настраиваются в `/db/seeds.rb`)
+```
+rails db:migrate
+rails db:seed
+```
 
-* System dependencies
+##Настройка рассылки дайджестов
+Расписание настраивается в `/congig/schedule.rb`
+```
+wheneverize .
+whenever --update-crontab
+```
 
-* Configuration
+##Запуск тестов
+```
+rake test
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##Доступ к панели администратора
+Для первого посещения панели администрирования необходимо выполнить команду
+```
+rails db:seed
+```
+и перейти по адресу `<базовый url>/admin` 
+Логин/пароль от учётной записи находятся в `/db/seeds.rb`
+(По-умолчанию `Логин: admin@example.com; Пароль: password`)
