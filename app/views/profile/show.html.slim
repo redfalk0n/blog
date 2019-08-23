@@ -1,0 +1,29 @@
+header#mainHeader.masthead
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .site-heading
+          h1 Новостной блог
+          span.subheading Новости созданы генератором текста
+.container
+  .row
+    .col-lg-8.col-md-10.mx-auto
+      h3 Редактирование настроек профиля
+      br
+      = form_for(:digest_frequency) do |f|
+        .div.form-group
+          label[for="digestSelect"] Получать дайджест
+          = f.select(:digest_frequency, options_for_select([["Еженедельно", "weekly"], ["Ежедневно", "daily"], ["Никогда", "never"]]), {}, {:class => "form-control", :id => "digestSelect"})
+          br
+          .actions
+          = f.submit "Принять", class: "btn btn-primary"
+  javascript:
+    $(document).ready(() => {
+      const current_user = #{raw current_user.to_json}
+        $('#digestSelect option').each((id, val) => {
+          if (current_user.digest_frequency === val.value) {
+           $(val).attr('selected', 'selected')
+          }
+      })
+    })

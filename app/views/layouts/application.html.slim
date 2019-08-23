@@ -29,7 +29,7 @@ html
                 | Главная
             - if current_user
               li.nav-item
-                a.nav-link[href="about.html"]
+                a.nav-link[href="/profile"]
                   | Профиль
               li.nav-item
                 = link_to 'Выход', '/users/sign_out', :method => :delete, class: "nav-link"

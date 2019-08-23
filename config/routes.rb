@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/profile', to: 'profile#show'
+  post '/profile', to: 'profile#edit'
   resources :posts, only: [:show]
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
