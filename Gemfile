@@ -30,6 +30,7 @@ gem 'slim-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'activeadmin'
+gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 gem 'devise'
 gem 'sprockets-rails'
 

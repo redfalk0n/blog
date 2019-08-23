@@ -10,7 +10,12 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-
+@import "active_admin/editor/wysiwyg";
+input[disabled="disabled"],
+input[disabled] {
+  background-color: #F4F4F4;
+  border: 0px solid #F4F4F4 !important;
+}
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //

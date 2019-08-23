@@ -1,9 +1,10 @@
+- @posts = Post.all()
 doctype html
 html lang="en" 
   head
     meta charset="utf-8" /
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
-    title Clean Blog - Start Bootstrap Theme
+    title Новостной блог
     link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" /
     link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" /
     = stylesheet_link_tag 'home_page', media: 'all', 'data-turbolinks-track': 'reload'
@@ -12,9 +13,9 @@ html lang="en"
     /! Navigation
     nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
       .container
-        a.navbar-brand href="index.html"  Start Bootstrap
+        a.navbar-brand href="https://github.com/redfalk0n/blog"  Ссылка на GitHub
         button.navbar-toggler.navbar-toggler-right aria-controls="navbarResponsive" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarResponsive" data-toggle="collapse" type="button" 
-          | Menu
+          | Меню
           i.fas.fa-bars
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
@@ -33,22 +34,17 @@ html lang="en"
         .row
           .col-lg-8.col-md-10.mx-auto
             .site-heading
-              h1 Clean Blog
-              span.subheading A Blog Theme by Start Bootstrap
+              h1 Новостной блог
+              span.subheading Новости созданы генератором текста
     /! Main Content
     .container
       .row
         .col-lg-8.col-md-10.mx-auto
-          .post-preview
-            a href="post.html" 
-            h2.post-title
-              | Man must explore, and this is exploration at its greatest
-            h3.post-subtitle
-              | Problems look mighty small from 150 miles up
-            p.post-meta
-              | Posted by
-              a href="#"  Start Bootstrap
-              | on September 24, 2019
+          - @posts.each do |post|
+            .post-preview
+              h2.post-title = post.title
+              / h3.post-subtitle
+              p.post-meta = 'Автор: ' + post.author + '. ' + post.created_at.to_s
           hr
           .post-preview
             a href="post.html" 
@@ -57,7 +53,7 @@ html lang="en"
             p.post-meta
               | Posted by
               a href="#"  Start Bootstrap
-              | on September 18, 2019
+              |  on September 18, 2019
           hr
           .post-preview
             a href="post.html" 
@@ -68,7 +64,7 @@ html lang="en"
             p.post-meta
               | Posted by
               a href="#"  Start Bootstrap
-              | on August 24, 2019
+              |  on August 24, 2019
           hr
           .post-preview
             a href="post.html" 
@@ -79,7 +75,7 @@ html lang="en"
             p.post-meta
               | Posted by
               a href="#"  Start Bootstrap
-              | on July 8, 2019
+              |  on July 8, 2019
           hr
           /! Pager
           .clearfix
@@ -106,5 +102,5 @@ html lang="en"
                   span.fa-stack.fa-lg
                     i.fas.fa-circle.fa-stack-2x
                     i.fab.fa-github.fa-stack-1x.fa-inverse
-            p.copyright.text-muted Copyright &copy; Your Website 2019
+            p.copyright.text-muted 2019
     = javascript_pack_tag 'home_page', 'data-turbolinks-track': 'reload'

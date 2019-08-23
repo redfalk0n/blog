@@ -151,7 +151,7 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_action :do_something_awesome
-
+  config.before_action :set_admin_locale
   # == Attribute Filters
   #
   # You can exclude possibly sensitive model attributes from being displayed,

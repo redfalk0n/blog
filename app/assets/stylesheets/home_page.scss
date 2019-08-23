@@ -122,6 +122,14 @@ img::-moz-selection {
   background-image: asset-url("home-bg.jpg");
 }
 
+#mainContainer {
+  text-align: justify;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
