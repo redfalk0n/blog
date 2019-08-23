@@ -33,6 +33,8 @@ gem 'activeadmin'
 gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 gem 'devise'
 gem 'sprockets-rails'
+gem 'rails-i18n'
+gem 'whenever'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

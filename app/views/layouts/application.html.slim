@@ -1,11 +1,51 @@
 doctype html
 html
   head
-    title
-      | Blog
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    meta[charset="utf-8"]
+      meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
+      meta[name="description" content=""]
+      meta[name="author" content=""]
+      title
+        | Блог
+      link[href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"]
+      link[href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"]
+      = stylesheet_link_tag 'home_page', media: 'all', 'data-turbolinks-track': 'reload'
   body
+    nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+      .container
+        a.navbar-brand[href="https://github.com/redfalk0n/blog"]
+          | Ссылка на GitHub
+        button.navbar-toggler.navbar-toggler-right[type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"]
+          |  Меню
+          i.fas.fa-bars
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link[href="/"]
+                | Главная
+            - if current_user
+              li.nav-item
+                a.nav-link[href="about.html"]
+                  | Профиль
+              li.nav-item
+                = link_to 'Выход', '/users/sign_out', :method => :delete, class: "nav-link"
+            - else
+              li.nav-item
+                a.nav-link[href="/users/sign_up"]
+                  | Регистрация
+              li.nav-item
+                a.nav-link[href="/users/sign_in"]
+                  | Вход
     = yield
+  hr
+  /! Footer
+  footer
+    .container
+      .row
+        .col-lg-8.col-md-10.mx-auto
+          p.copyright.text-muted 2019
+  = javascript_pack_tag 'home_page', 'data-turbolinks-track': 'reload'

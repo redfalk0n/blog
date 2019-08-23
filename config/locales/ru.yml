@@ -2,7 +2,27 @@ ru:
   time:
     formats:
       long: "%Y-%m-%d %H:%M:%S"
+      am: "утра"
+      formats:
+        default: "%a, %d %b %Y, %H:%M:%S %z"
+        long: "%d %B %Y, %H:%M"
+        short: "%d %b, %H:%M"
+      pm: "вечера"
+
   active_admin:
+    resources:
+      post:
+        new_model: "Новый пост"
+        edit_model: "Редактировать пост"
+        delete_model: "Удалить пост"
+      user:
+        new_model: "Новый пользователь"
+        edit_model: "Редактировать настройки пользователя"
+        delete_model: "Удалить пользователя"
+      admin_user:
+        new_model: "Новый администратор"
+        edit_model: "Редактировать настройки администратора"
+        delete_model: "Удалить администратора"
     dashboard: "Панель управления"
     dashboard_welcome:
       welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."

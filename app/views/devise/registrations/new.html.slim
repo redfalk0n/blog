@@ -1,24 +1,36 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+header#mainHeader.masthead
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .site-heading
+          h1 Новостной блог
+          span.subheading Новости созданы генератором текста
+.container
+  .row
+    .col-lg-8.col-md-10.mx-auto
+      h2
+        | Регистрация
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .div.form-group
+          label[for="emailForm"] Email
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Введите email", id: "emailForm"
+        .div.form-group
+          label>[for="passwordForm"] Пароль
+          - if @minimum_password_length
+            em
+              | (
+              = @minimum_password_length
+              |  символов минимум)
+          = f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Введите пароль", id: "passwordForm"
+        .div.form-group
+          label[for="passwordConfirmForm"] Подтверждение пароля
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Введите пароль ещё раз", id: "passwordConfirmForm"
+        .div.form-group
+          label[for="digestSelect"] Получать дайджест
+          = f.select(:digest_frequency, options_for_select([["Еженедельно", "weekly"], ["Ежедневно", "daily"], ["Никогда", "never"]]), {}, {:class => "form-control", :id => "digestSelect"})
+        .actions
+          = f.submit "Принять", class: "btn btn-primary"
+      br
+      = render "devise/shared/links"
