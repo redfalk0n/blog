@@ -1,4 +1,9 @@
-- @posts = Post.all()
+-if params[:digest] == 'weekly'
+  -@posts = Post.where("created_at >= ?", 1.week.ago.utc)
+-elsif params[:digest] == 'daily'
+  -@posts = Post.where("created_at >= ?", 1.day.ago.utc)
+-else
+  -@posts = Post.all
 /! Page Header
 header#mainHeader.masthead
   .overlay
