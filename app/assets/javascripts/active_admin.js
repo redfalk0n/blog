@@ -7,7 +7,7 @@ $(document).ready(() => {
   const path = document.URL.split('/')
   const id = path[path.indexOf('posts') + 1]
   if (path.indexOf('posts') !== -1 && path.indexOf('edit') !== -1 && $.isNumeric(id)) {
-    const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
+    const cable = ActionCable.createConsumer()
     let justReceived = false
     let newMember = true
     const sub = cable.subscriptions.create({channel: 'PostsChannel', id},{
