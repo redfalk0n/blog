@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'slim-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'activeadmin'
-gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
+gem 'activeadmin_medium_editor'
 gem 'devise'
 gem 'sprockets-rails'
 gem 'rails-i18n'

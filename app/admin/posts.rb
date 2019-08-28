@@ -22,11 +22,11 @@ ActiveAdmin.register Post do
 
   form do |f|
     f.inputs do
-      f.input :title, label: "Заголовок"
-      f.input :subheader, label: "Подзаголовок"
-      f.input :image, as: :file, label: "Изображение"
-      f.input :content, as: :html_editor, label: "Тело новости"
-      f.input :author, label: "Автор"
+      f.input :title, label: "Заголовок", input_html: { id: 'post-title' }
+      f.input :subheader, label: "Подзаголовок", input_html: { id: 'post-subheader' }
+      f.input :image, as: :file, label: "Изображение", input_html: { id: 'post-image' }
+      f.input :content, as: :medium_editor, label: "Тело новости", input_html: { id: 'post-content' }
+      f.input :author, label: "Автор", input_html: { id: 'post-author' }
       f.input :edition, label: "Редакция (макисмум 5)", input_html: { disabled: true } unless f.object.new_record?
     end
     f.actions
