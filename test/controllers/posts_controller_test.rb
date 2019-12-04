@@ -10,4 +10,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should have header" do
+    get post_url(@post)
+    assert_select "h1", "test header"
+  end
+
 end
